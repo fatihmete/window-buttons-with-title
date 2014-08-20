@@ -96,10 +96,9 @@ WindowButtonApplet.prototype = {
         				
         				if(w){
         				 	w.connect('notify::title', Lang.bind(this, function(){
-								
-								
+
 							this._windowChange();
-							
+
 							}));
         				 	
         				 }
