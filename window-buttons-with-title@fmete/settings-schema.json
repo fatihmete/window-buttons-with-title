@@ -47,6 +47,7 @@
     "type" : "header",
     "description" : "Title and Icon Settings"
  },
+ 
  "icon-button-action" : {
     "type": "combobox",
     "default" : "2",
@@ -132,5 +133,41 @@
     "units" : "pixels",
     "description" : "Title icon width:",
     "tooltip" : "Please be careful"
+ },
+ "div2" : {
+    "type" : "separator"
+ },
+ "head3" : {
+    "type" : "header",
+    "description" : "Font Settings"
+ },
+  "title-font": {
+        "type": "entry", 
+        "description": "Text font (empty for default theme font)", 
+        "default": ""
+  },
+  "title-font-color": {
+        "type": "entry", 
+        "description": "Text color (empty for default theme color)", 
+        "default": ""
+  },
+   "title-font-style" : {
+    "type": "combobox",
+    "default" : "1",
+    "description" : "Font style",
+    "options" : {
+        "Normal" : "normal",
+        "Italic" : "italic"
+    }
+    }
+    ,
+ "title-font-size" : {
+    "type": "spinbutton",
+    "default" : 0,
+    "min" : 0,
+    "max" : 40,
+    "step" : 1,
+    "units" : "pixels",
+    "description" : "Text Size:"
  }
 }

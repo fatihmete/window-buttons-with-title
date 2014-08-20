@@ -75,6 +75,10 @@ WindowButtonApplet.prototype = {
 	this.settings.bindProperty(Settings.BindingDirection.IN,"show-panels", "show_panels",this.on_settings_changed,null);
 	this.settings.bindProperty(Settings.BindingDirection.IN,"text-mode", "textMode",this.on_settings_changed,null);		  
 	this.settings.bindProperty(Settings.BindingDirection.IN,"only-maximized", "onlyMaximized",this.on_settings_changed,null);	
+	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font", "titleFont",this.on_settings_changed,null);
+	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-style", "titleFontStyle",this.on_settings_changed,null);
+	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-color", "titleFontColor",this.on_settings_changed,null);
+	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-size", "titleFontSize",this.on_settings_changed,null);
 	
 	global.settings.connect('changed::panel-edit-mode', Lang.bind(this, this.on_panel_edit_mode_changed));
 	Main.themeManager.connect("theme-set", Lang.bind(this, this.loadTheme));
@@ -151,12 +155,23 @@ WindowButtonApplet.prototype = {
      	}
     
     },
+    fontStyle: function() {
+    
+    		titleStyle="";
+    	    if(this.titleFont){ titleStyle=titleStyle+'font-family:"' + this.titleFont+'";'}
+    	    if(this.titleFontStyle){ titleStyle=titleStyle+ 'font-style:'+this.titleFontStyle+';'}
+    	    if(this.titleFontColor){ titleStyle=titleStyle+ 'color:'+this.titleFontColor+';'}
+    	    if(this.titleFontSize!=0){ titleStyle=titleStyle+ 'font-size:'+this.titleFontSize+'px;'}
+    	    
+    	    return titleStyle;
+    },
     titleButton: function () {
     
+    	        	    
     	    this.button['title'] = new St.Button({ name: 'titleButton',
     	    			     //get theme class for fix title label color
     	    		             style_class: 'window-list-item',
-                                     style: this.titleWidthOption + this.titleWidth + 'px;',
+                                     style: this.titleWidthOption + this.titleWidth + 'px;' + this.fontStyle(),
    				     reactive: true });
                                      
            
@@ -336,7 +351,7 @@ WindowButtonApplet.prototype = {
 		    this.button['minimize'] = new St.Button({ 
 		    				name: 'windowButton',
 						style_class: 'window-list-item-box',
-					
+						style: this.fontStyle(),
 		                             reactive: true });
 		    let label = new St.Label({ text : _('Minimize'), style_class: 'window-list-item'});
 		       
@@ -394,6 +409,7 @@ WindowButtonApplet.prototype = {
 		    this.button['maximize'] = new St.Button({ 
 		    				name: 'windowButton',
 						style_class: 'window-list-item-box',
+						style: this.fontStyle(),
 					
 		                             reactive: true });
 		    let label = new St.Label({ text : _('Maximize'), style_class: 'window-list-item'});
@@ -455,6 +471,7 @@ WindowButtonApplet.prototype = {
 		    this.button['close'] = new St.Button({ 
 		    				name: 'windowButton',
 						style_class: 'window-list-item-box',
+						style: this.fontStyle(),
 					
 		                             reactive: true });
 		    let label = new St.Label({ text : _('Close'), style_class: 'window-list-item'});
