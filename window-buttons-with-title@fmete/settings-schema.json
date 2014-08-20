@@ -168,6 +168,6 @@
     "max" : 40,
     "step" : 1,
     "units" : "pixels",
-    "description" : "Text Size:"
+    "description" : "Text Size (0 for theme default):"
  }
 }
