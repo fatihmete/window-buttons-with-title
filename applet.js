@@ -5,7 +5,7 @@
 //
 //          Email: fatihmete@live.com
 
-//Resources and Thanks: 
+//Resources and Thanks:  
 
 //-http://mathematicalcoffee.blogspot.com.tr/2012/05/automatically-undecorate-maximised.html
 //-Gnome-Shell Maximus Extension https://bitbucket.org/mathematicalcoffee/maximus-gnome-shell-extension
@@ -46,6 +46,8 @@ function WindowButtonApplet(orientation,metadata, panelHeight, instance_id) {
 
 	this._init(orientation,metadata, panelHeight, instance_id);
 }
+
+
 
 WindowButtonApplet.prototype = {
 
