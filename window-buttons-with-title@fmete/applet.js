@@ -565,9 +565,7 @@ WindowButtonApplet.prototype = {
 		     this.button['title'].get_child().set_text(t.toString());
 		    
 		    }
-		    
-		    
-		    
+
 		    }
             
 
