@@ -93,7 +93,6 @@ WindowButtonApplet.prototype = {
 	
 	this.button = [];
 	this.createButtons(this.buttons_style);
-	this._windowChange();
 	
         global.screen.get_display().connect('notify::focus-window', Lang.bind(this, function(){
 					//let w=global.display.focus_window;
