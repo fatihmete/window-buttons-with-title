@@ -86,6 +86,7 @@
         "Expo" : "3",
         "Show Desktop" : "2",
         "Move Window" : "4"
+        "Toggle Maximization(need wmctrl)" : "5"
         
     }
 
