@@ -23,7 +23,8 @@
         "UniMetro" : "UniMetro",
         "UniMetro-Black" : "UniMetro-Black",
         "Zukitwo" : "Zukitwo",
-        "Zukitwo-Dark" : "Zukitwo-Dark"
+        "Zukitwo-Dark" : "Zukitwo-Dark",
+        "Vimix" : "Vimix"
     },
     "tooltip" : "Please select a theme for window buttons"
  },
