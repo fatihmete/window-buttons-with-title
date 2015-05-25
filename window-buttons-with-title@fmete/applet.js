@@ -561,12 +561,12 @@ WindowButtonApplet.prototype = {
 		    //this.button['title'].show();
 		    let t = activeWindow.title;
 		    //let label = new St.Label({ text: t });
-		    this.button['title'].get_child().set_text(t.toString());
+		    this.button['title'].get_child().set_text("  " + t.toString());
 		    //this.actor.add(this.button['title']);
 		    
 		    }else{
 		     let t=_("Desktop");
-		     this.button['title'].get_child().set_text(t.toString());
+		     this.button['title'].get_child().set_text("  " + t.toString());
 		    
 		    }
 
