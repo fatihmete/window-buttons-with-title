@@ -163,6 +163,15 @@
     }
     }
     ,
+ "title-font-weight" : {
+   "type": "combobox",
+   "default": "1",
+   "description" : "Font weight",
+   "options": {
+     "Normal": "normal",
+     "Bold": "bold"
+   }
+ },
  "title-font-size" : {
     "type": "spinbutton",
     "default" : 0,
