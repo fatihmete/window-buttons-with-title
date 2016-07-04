@@ -76,8 +76,7 @@ WindowButtonApplet.prototype = {
 	this.settings.bindProperty(Settings.BindingDirection.IN,"text-mode", "textMode",this.on_settings_changed,null);		  
 	this.settings.bindProperty(Settings.BindingDirection.IN,"only-maximized", "onlyMaximized",this.on_settings_changed,null);	
 	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font", "titleFont",this.on_settings_changed,null);
-	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-weight", "titleFontWeight",this.on_settings_changed,null);
-        this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-style", "titleFontStyle",this.on_settings_changed,null);
+	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-style", "titleFontStyle",this.on_settings_changed,null);
 	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-color", "titleFontColor",this.on_settings_changed,null);
 	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-size", "titleFontSize",this.on_settings_changed,null);
 	
@@ -160,7 +159,6 @@ WindowButtonApplet.prototype = {
     
     		titleStyle="";
     	    if(this.titleFont){ titleStyle=titleStyle+'font-family:"' + this.titleFont+'";'}
-            if(this.titleFontWeight){ titleStyle=titleStyle+'font-weight:' + this.titleFontWeight+';'}
     	    if(this.titleFontStyle){ titleStyle=titleStyle+ 'font-style:'+this.titleFontStyle+';'}
     	    if(this.titleFontColor){ titleStyle=titleStyle+ 'color:'+this.titleFontColor+';'}
     	    if(this.titleFontSize!=0){ titleStyle=titleStyle+ 'font-size:'+this.titleFontSize+'px;'}
