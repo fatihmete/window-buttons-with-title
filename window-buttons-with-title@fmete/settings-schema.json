@@ -17,8 +17,6 @@
         "Default" : "default",
         "Ambiance" : "Ambiance",
         "Ambiance-Blue" : "Ambiance-Blue",
-        "Mint-X" : "Mint-X",
-	"Mac-OS-X" : "Mac-OS-X",
         "Radiance" : "Radiance",
         "UniMetro" : "UniMetro",
         "UniMetro-Black" : "UniMetro-Black",
@@ -86,9 +84,8 @@
         "Scale" : "1",
         "Expo" : "3",
         "Show Desktop" : "2",
-        "Move Window" : "4"
-        "Toggle Maximization(need wmctrl)" : "5"
-        
+        "Move Window" : "4",
+        "Maximize Windows" : "5"
     }
 
  },
