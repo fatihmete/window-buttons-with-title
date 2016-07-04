@@ -40,6 +40,7 @@ const Meta = imports.gi.Meta;
 const Util = imports.misc.util;
 const GLib = imports.gi.GLib;
 const Gdk = imports.gi.Gdk;
+const GnomeSession = imports.misc.gnomeSession;
 
 
 function WindowButtonApplet(orientation,metadata, panelHeight, instance_id) {
@@ -79,6 +80,10 @@ WindowButtonApplet.prototype = {
 	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-style", "titleFontStyle",this.on_settings_changed,null);
 	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-color", "titleFontColor",this.on_settings_changed,null);
 	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-size", "titleFontSize",this.on_settings_changed,null);
+	this.settings.bindProperty(Settings.BindingDirection.IN,"on-desktop-shutdown", "onDesktopShutdown",this.on_settings_changed,null);
+
+	this._session = new GnomeSession.SessionManager();
+
 	
 	global.settings.connect('changed::panel-edit-mode', Lang.bind(this, this.on_panel_edit_mode_changed));
 	Main.themeManager.connect("theme-set", Lang.bind(this, this.loadTheme));
@@ -519,6 +524,11 @@ WindowButtonApplet.prototype = {
            /* let winactors = global.get_window_actors()
             let uppermost = winactors[winactors.length-1].get_meta_window()
             uppermost.delete(global.get_current_time()); */
+            if(this.onDesktopShutdown==true){
+
+            	this._session.ShutdownRemote();
+
+        	}
             return;
             
         }else{

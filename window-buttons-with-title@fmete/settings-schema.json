@@ -27,6 +27,11 @@
     },
     "tooltip" : "Please select a theme for window buttons"
  },
+  "on-desktop-shutdown" : {
+      "type" : "checkbox",
+      "default" : false,
+      "description": "On desktop show shutdown menu when click close button"
+   },
  "text-mode" : {
       "type" : "checkbox",
       "default" : false,
