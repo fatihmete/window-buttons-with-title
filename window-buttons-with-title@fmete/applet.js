@@ -93,17 +93,19 @@ WindowButtonApplet.prototype = {
 	
 	this.button = [];
 	this.createButtons(this.buttons_style);
-	
+	this._windowChange();
+
         global.screen.get_display().connect('notify::focus-window', Lang.bind(this, function(){
-					//let w=global.display.focus_window;
+        				let w=global.display.focus_window;
         				
-        				 	global.display.focus_window.connect('notify::title', Lang.bind(this, function(){
+        				if(w){
+        				 	w.connect('notify::title', Lang.bind(this, function(){
 
 							this._windowChange();
 
 							}));
         				 	
-        				 
+        				 }
         				this._windowChange();
         				}));
 
@@ -208,6 +210,12 @@ WindowButtonApplet.prototype = {
            		this._move();
            	        return true;
            	}
+
+            else if(this.titleButtonAction==5) {
+              this.maximizeWindow();
+                    return true;
+              // GLib.spawn_command_line_async('wmctrl -r :ACTIVE: -b toggle,maximized_vert,maximized_horz');
+            }
            	else {
            		return true;
            	} 
@@ -556,15 +564,17 @@ WindowButtonApplet.prototype = {
 		    //this.button['title'].show();
 		    let t = activeWindow.title;
 		    //let label = new St.Label({ text: t });
-		    this.button['title'].get_child().set_text(t.toString());
+		    this.button['title'].get_child().set_text("  " + t.toString());
 		    //this.actor.add(this.button['title']);
 		    
 		    }else{
 		     let t=_("Desktop");
-		     this.button['title'].get_child().set_text(t.toString());
+		     this.button['title'].get_child().set_text("  " + t.toString());
 		    
 		    }
-
+		    
+		    
+		    
 		    }
             
 

@@ -17,13 +17,12 @@
         "Default" : "default",
         "Ambiance" : "Ambiance",
         "Ambiance-Blue" : "Ambiance-Blue",
-        "Mint-X" : "Mint-X",
-	"Mac-OS-X" : "Mac-OS-X",
         "Radiance" : "Radiance",
         "UniMetro" : "UniMetro",
         "UniMetro-Black" : "UniMetro-Black",
         "Zukitwo" : "Zukitwo",
-        "Zukitwo-Dark" : "Zukitwo-Dark"
+        "Zukitwo-Dark" : "Zukitwo-Dark",
+        "Vimix" : "Vimix"
     },
     "tooltip" : "Please select a theme for window buttons"
  },
@@ -85,8 +84,8 @@
         "Scale" : "1",
         "Expo" : "3",
         "Show Desktop" : "2",
-        "Move Window" : "4"
-        
+        "Move Window" : "4",
+        "Maximize Windows" : "5"
     }
 
  },
