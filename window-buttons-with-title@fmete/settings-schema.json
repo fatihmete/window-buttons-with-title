@@ -43,6 +43,16 @@
       "default" : false,
       "description": "Show applet (active buttons-title-icon on this instance) only active window maximized"
    },
+   "title-desktop-text" : {
+      "type" : "entry",
+      "default" : "Desktop",
+      "description" : "Desktop title button text"
+   },
+   "title-nowindow-text" : {
+      "type" : "entry",
+      "default" : "No Active Window",
+      "description" : "No active window title button text"
+   },
 "cinnamon-maximus-button": {
         "type": "button",
         "description": "For Maximus option, please install cinnamon-maximus extension",
