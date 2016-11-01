@@ -75,7 +75,9 @@ WindowButtonApplet.prototype = {
 	this.settings.bindProperty(Settings.BindingDirection.IN,"icon-middle-button-action", "iconMiddleButtonAction", this.on_settings_changed,null); 
 	this.settings.bindProperty(Settings.BindingDirection.IN,"show-panels", "show_panels",this.on_settings_changed,null);
 	this.settings.bindProperty(Settings.BindingDirection.IN,"text-mode", "textMode",this.on_settings_changed,null);		  
-	this.settings.bindProperty(Settings.BindingDirection.IN,"only-maximized", "onlyMaximized",this.on_settings_changed,null);	
+	this.settings.bindProperty(Settings.BindingDirection.IN,"only-maximized", "onlyMaximized",this.on_settings_changed,null);
+	this.settings.bindProperty(Settings.BindingDirection.IN,"title-desktop-text", "titleDesktopText",this.on_settings_changed,null);
+	this.settings.bindProperty(Settings.BindingDirection.IN,"title-nowindow-text", "titleNowindowText",this.on_settings_changed,null);
 	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font", "titleFont",this.on_settings_changed,null);
 	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-style", "titleFontStyle",this.on_settings_changed,null);
 	this.settings.bindProperty(Settings.BindingDirection.IN,"title-font-color", "titleFontColor",this.on_settings_changed,null);
@@ -180,7 +182,7 @@ WindowButtonApplet.prototype = {
    				     reactive: true });
                                      
            
-            let label = new St.Label({ text : 'No Active Window', style_class: 'window-list-item'});
+            let label = new St.Label({ text : this.titleNowindowText.toString(), style_class: 'window-list-item'});
 	       
             
             this.button['title'].set_child(label);
@@ -578,7 +580,7 @@ WindowButtonApplet.prototype = {
 		    //this.actor.add(this.button['title']);
 		    
 		    }else{
-		     let t=_("Desktop");
+		     let t=_(this.titleDesktopText.toString());
 		     this.button['title'].get_child().set_text("  " + t.toString());
 		    
 		    }
