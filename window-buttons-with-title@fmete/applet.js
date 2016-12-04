@@ -100,7 +100,6 @@ WindowButtonApplet.prototype = {
 	
 	this.button = [];
 	this.createButtons(this.buttons_style);
-	this._windowChange();
 
         global.screen.get_display().connect('notify::focus-window', Lang.bind(this, function(){
         				let w=global.display.focus_window;
@@ -189,6 +188,9 @@ WindowButtonApplet.prototype = {
             this.actor.add(this.button['title']); 
            // this.updateWindowTitle();
             this.button['title'].connect('button-press-event', Lang.bind(this,function(actor,event){
+                if(this.button['title'].opacity==0) {
+                    return false;
+                }
             
              let button = event.get_button();
              
@@ -280,6 +282,9 @@ WindowButtonApplet.prototype = {
             this.actor.add(this.button['icon']);
             
             this.button['icon'].connect('button-press-event', Lang.bind(this,function(actor,event){
+                if(this.button['icon'].opacity==0) {
+                    return false;
+                }
             let button = event.get_button();
              
              if (button == 1) {
@@ -387,6 +392,9 @@ WindowButtonApplet.prototype = {
       },
       
     minimizeWindow: function() {
+        if(this.button['minimize'].opacity==0) {
+            return false;
+        }
     
      	let activeWindow = global.display.focus_window;
     
@@ -410,7 +418,7 @@ WindowButtonApplet.prototype = {
     },
     
     maximizeButton: function () {    
-    
+  
     
 		if(this.textMode==false){
              
@@ -449,6 +457,9 @@ WindowButtonApplet.prototype = {
        },
        
     maximizeWindow: function() {
+        if(this.button['maximize'].opacity==0) {
+            return false;
+        }
         let activeWindow = global.display.focus_window;
         if(activeWindow){
 	let tracker = Cinnamon.WindowTracker.get_default();
@@ -514,6 +525,9 @@ WindowButtonApplet.prototype = {
     },
     
     closeWindow: function() {
+        if(this.button['close'].opacity==0) {
+            return false;
+        }
     
         let activeWindow = global.display.focus_window;
   
@@ -780,16 +794,19 @@ WindowButtonApplet.prototype = {
     
 		
 		 w=global.display.focus_window;
+		let tracker = Cinnamon.WindowTracker.get_default();
+       	let app = tracker.get_window_app(w);
 		let buttons=this.buttons_style.split(':');
 		
-		if(w.get_maximized()){
+		if(app && w.get_maximized()){
 		
 			
 	    	
 	    	 
 			for (let i=0; i < buttons.length; ++i ){
      	
-				this.button[buttons[i]].show();
+//				this.button[buttons[i]].show();
+				this.button[buttons[i]].opacity=255;
      	
      		
 			}
@@ -798,7 +815,8 @@ WindowButtonApplet.prototype = {
 		
 			for (let i=0; i < buttons.length; ++i ){
      	
-				this.button[buttons[i]].hide();
+//				this.button[buttons[i]].hide();
+				this.button[buttons[i]].opacity=0;
      	
      		
 			}
