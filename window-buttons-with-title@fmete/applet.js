@@ -816,7 +816,9 @@ WindowButtonApplet.prototype = {
 			for (let i=0; i < buttons.length; ++i ){
      	
 //				this.button[buttons[i]].hide();
-				this.button[buttons[i]].opacity=0;
+                                if (buttons[i] != 'icon') {
+                                    this.button[buttons[i]].opacity=0;
+                                }
      	
      		
 			}
