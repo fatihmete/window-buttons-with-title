@@ -164,7 +164,7 @@ WindowButtonApplet.prototype = {
     },
     fontStyle: function() {
     
-    		titleStyle="";
+    		let titleStyle="";
     	    if(this.titleFont){ titleStyle=titleStyle+'font-family:"' + this.titleFont+'";'}
     	    if(this.titleFontStyle){ titleStyle=titleStyle+ 'font-style:'+this.titleFontStyle+';'}
     	    if(this.titleFontColor){ titleStyle=titleStyle+ 'color:'+this.titleFontColor+';'}
@@ -779,10 +779,10 @@ WindowButtonApplet.prototype = {
     onlyMaximize: function(){
     
 		
-		 w=global.display.focus_window;
+		let w=global.display.focus_window;
 		let buttons=this.buttons_style.split(':');
 		
-		if(w.get_maximized()){
+		if(w && w.get_maximized()){
 		
 			
 	    	
